@@ -17,7 +17,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-  
+
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
 
 :root {
@@ -48,13 +48,13 @@
     --ctp-flamingo: #f2cdcd;
     --ctp-rosewater: #f5e0dc;
 }
-  
+
 body {
     background-color: var(--ctp-base);
     position: relative;
     overflow-x: hidden;
 }
-  
+
 .container {
     display: flex;
     flex-direction: column;
@@ -67,13 +67,12 @@ body {
     padding: 20px;
     padding-bottom: 80px;
 }
-  
+
 .header {
     text-align: center;
     margin-bottom: 20px;
-    cursor: pointer;
 }
-  
+
 h1 {
     font-family: 'Fira Code', monospace;
     font-size: 48px;
@@ -223,7 +222,7 @@ h1:hover {
 .bottom-text:hover .tooltip {
     opacity: 1;
 }
-  
+
 .buttons {
     display: flex;
     gap: 25px;
@@ -231,7 +230,7 @@ h1:hover {
     flex-wrap: wrap;
     justify-content: center;
 }
-  
+
 .box {
     position: relative;
     width: 280px;
@@ -253,484 +252,15 @@ h1:hover {
     text-align: center;
     line-height: 1.2;
 }
-  
+
 .box:hover {
     transform: scale(1.05);
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
     filter: brightness(1.1);
 }
-
-.music-player {
-    width: 100%;
-    max-width: 420px;
-    background-color: var(--ctp-surface0);
-    border: 2px solid var(--ctp-surface2);
-    padding: 16px;
-    margin: 20px 0;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-}
-
-.player-main {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
-.cover-art {
-    width: 60px;
-    height: 60px;
-    background-color: var(--ctp-surface1);
-    border: 2px solid var(--ctp-surface2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.cover-art img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.cover-placeholder {
-    font-size: 24px;
-    color: var(--ctp-overlay0);
-}
-
-.song-info {
-    flex: 1;
-    min-width: 0;
-}
-
-.song-title {
-    font-family: 'Fira Code', monospace;
-    font-size: 16px;
-    color: var(--ctp-text);
-    margin-bottom: 2px;
-    line-height: 1.2;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.song-artist {
-    font-family: 'Fira Code', monospace;
-    font-size: 13px;
-    color: var(--ctp-subtext1);
-    opacity: 0.8;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.audio-controls {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-shrink: 0;
-}
-
-.control-btn {
-    background-color: var(--ctp-surface1);
-    border: 2px solid var(--ctp-surface2);
-    color: var(--ctp-text);
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.control-btn:hover {
-    background-color: var(--ctp-surface2);
-    transform: scale(1.05);
-}
-
-.control-btn svg {
-    width: 14px;
-    height: 14px;
-    fill: var(--ctp-text);
-}
-
-.control-btn.play-btn {
-    width: 38px;
-    height: 38px;
-    background-color: var(--ctp-mauve);
-    border-color: var(--ctp-mauve);
-}
-
-.control-btn.play-btn svg {
-    width: 16px;
-    height: 16px;
-    fill: var(--ctp-base);
-}
-
-.control-btn.play-btn:hover {
-    background-color: var(--ctp-lavender);
-    border-color: var(--ctp-lavender);
-}
-
-.progress-section {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.time-display {
-    font-family: 'Fira Code', monospace;
-    font-size: 11px;
-    color: var(--ctp-subtext1);
-    min-width: 32px;
-    text-align: center;
-}
-
-.progress-bar {
-    flex: 1;
-    height: 4px;
-    background-color: var(--ctp-surface1);
-    position: relative;
-    cursor: pointer;
-    border: 1px solid var(--ctp-surface2);
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--ctp-mauve), var(--ctp-lavender));
-    width: 0%;
-    transition: width 0.1s ease;
-}
-
-.progress-bar:hover .progress-fill {
-    background: linear-gradient(90deg, var(--ctp-lavender), var(--ctp-blue));
-}
-
-.video-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 9999;
-    justify-content: center;
-    align-items: center;
-}
-
-.video-modal.active {
-    display: flex;
-}
-
-.video-modal video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-}
-
-.close-video {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 48px;
-    color: var(--ctp-text);
-    cursor: pointer;
-    z-index: 10000;
-    transition: color 0.3s ease;
-}
-
-.close-video:hover {
-    color: var(--ctp-lavender);
-}
-
-.close-video:hover {
-    color: var(--ctp-lavender);
-}
-
-.click-prompt {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
-    color: var(--ctp-text);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Fira Code', monospace;
-    font-size: 24px;
-    z-index: 10002;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.click-prompt.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-body:not(.started) .container > * {
-    opacity: 0;
-    transform: translateY(30px);
-}
-
-.animate-in {
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-    from { 
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to { 
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        gap: 15px;
-        padding: 15px;
-        padding-bottom: 90px;
-    }
-    
-    .buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .box {
-        width: min(280px, calc(100vw - 30px));
-        height: 120px;
-        font-size: 20px;
-        padding: 15px;
-    }
-    
-    h1 {
-        font-size: 28px;
-        padding: 8px 15px;
-        line-height: 1.3;
-    }
-    
-    .messaging-apps {
-        gap: 12px;
-        margin-bottom: 15px;
-    }
-    
-    .messaging-app {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .messaging-app .icon {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .messaging-app:hover {
-        width: 110px;
-    }
-    
-    .messaging-app:hover .icon {
-        transform: translateX(-20px);
-    }
-    
-    .messaging-app .label {
-        font-size: 12px;
-        right: 10px;
-    }
-    
-    .music-player {
-        padding: 14px;
-        margin: 15px 0;
-        max-width: 100%;
-    }
-    
-    .player-main {
-        gap: 10px;
-        margin-bottom: 10px;
-    }
-    
-    .cover-art {
-        width: 50px;
-        height: 50px;
-    }
-    
-    .cover-placeholder {
-        font-size: 20px;
-    }
-    
-    .song-title {
-        font-size: 14px;
-    }
-    
-    .song-artist {
-        font-size: 12px;
-    }
-    
-    .control-btn {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .control-btn svg {
-        width: 12px;
-        height: 12px;
-    }
-    
-    .control-btn.play-btn {
-        width: 34px;
-        height: 34px;
-    }
-    
-    .control-btn.play-btn svg {
-        width: 14px;
-        height: 14px;
-    }
-    
-    .audio-controls {
-        gap: 6px;
-    }
-    
-    .time-display {
-        font-size: 10px;
-        min-width: 28px;
-    }
-    
-    .bottom-text {
-        bottom: 15px;
-        width: calc(100% - 20px);
-    }
-    
-    .bottom-text p {
-        font-size: 14px;
-        line-height: 1.4;
-        padding: 0 15px;
-    }
-    
-    .tooltip {
-        font-size: 12px;
-        padding: 6px 10px;
-        margin-bottom: 6px;
-    }
-    
-    .close-video {
-        font-size: 36px;
-        top: 15px;
-        right: 20px;
-    }
-    
-    .session-copied {
-        font-size: 14px;
-        padding: 12px 20px;
-        bottom: 25px;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 24px;
-        padding: 6px 12px;
-    }
-    
-    .box {
-        width: calc(100vw - 30px);
-        height: 100px;
-        font-size: 18px;
-        padding: 10px;
-    }
-    
-    .messaging-app:hover {
-        width: 100px;
-    }
-    
-    .messaging-app:hover .icon {
-        transform: translateX(-15px);
-    }
-    
-    .music-player {
-        padding: 12px;
-    }
-    
-    .player-main {
-        gap: 8px;
-        margin-bottom: 8px;
-    }
-    
-    .cover-art {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .cover-placeholder {
-        font-size: 18px;
-    }
-    
-    .song-title {
-        font-size: 13px;
-    }
-    
-    .song-artist {
-        font-size: 11px;
-    }
-    
-    .control-btn {
-        width: 26px;
-        height: 26px;
-    }
-    
-    .control-btn svg {
-        width: 11px;
-        height: 11px;
-    }
-    
-    .control-btn.play-btn {
-        width: 30px;
-        height: 30px;
-    }
-    
-    .control-btn.play-btn svg {
-        width: 13px;
-        height: 13px;
-    }
-    
-    .audio-controls {
-        gap: 5px;
-    }
-    
-    .time-display {
-        font-size: 9px;
-        min-width: 25px;
-    }
-    
-    .bottom-text p {
-        font-size: 13px;
-        padding: 0 10px;
-    }
-}
   </style>
 </head>
 <body>
-
-  <div class="click-prompt" id="clickPrompt">
-    [ click ]
-  </div>
-
-  <div class="video-modal" id="videoModal">
-    <span class="close-video" id="closeVideo">&times;</span>
-    <video controls>
-      <source src="blue.webm" type="video/webm">
-      Blue Balls Blue Balls Blue Balls.
-    </video>
-  </div>
 
   <div class="session-copied" id="sessionCopied">
     Session ID copied to clipboard!
@@ -740,65 +270,31 @@ body:not(.started) .container > * {
       <div class="header" id="headerText">
           <h1>m'encanten els gats</h1>
       </div>
-      
+
       <div class="messaging-apps" id="messagingApps">
-          <a href="discord://-/users/1142374890280853514" class="messaging-app discord" title="discord" target="_blank">
-              <img src="dc.png" alt="discord" class="icon" />
+          <a href="discord://-/users/1142374890280853514" class="messaging-app" target="_blank">
+              <img src="dc.png" class="icon" />
               <span class="label">ryz.cat</span>
           </a>
-          <a href="https://t.me/yzkitty" class="messaging-app telegram" title="Telegram" target="_blank">
-              <img src="te.png" alt="Telegram" class="icon" />
+          <a href="https://t.me/yzkitty" class="messaging-app" target="_blank">
+              <img src="te.png" class="icon" />
               <span class="label">yzkitty</span>
           </a>
-          <a href="https://signal.me/#eu/rqO3MUcA6eOdILd90rc9iXKlHeK-0Xm5mZoFJFMqWb872H_dhRROdqbTlcUtkPBu" class="messaging-app signal" title="Signal" target="_blank">
-              <img src="si.png" alt="Signal" class="icon" />
+          <a href="https://signal.me/#eu/rqO3MUcA6eOdILd90rc9iXKlHeK-0Xm5mZoFJFMqWb872H_dhRROdqbTlcUtkPBu" class="messaging-app" target="_blank">
+              <img src="si.png" class="icon" />
               <span class="label">G59.01</span>
           </a>
-          <a href="https://soundcloud.com/newgennn" class="messaging-app soundcloud" title="Soundcloud" target="_blank">
-              <img src="sc.png" alt="Soundcloud" class="icon" />
+          <a href="https://soundcloud.com/newgennn" class="messaging-app" target="_blank">
+              <img src="sc.png" class="icon" />
               <span class="label">newgennn</span>
           </a>
-          <div class="messaging-app session" title="Session" data-session-id="052caf869d7cdd3990ed4536250a182ae6c4a9c5d55a413bb4be1ca43571a05d0b">
-              <img src="se.png" alt="Session" class="icon" />
+          <div class="messaging-app session" data-session-id="052caf869d7cdd3990ed4536250a182ae6c4a9c5d55a413bb4be1ca43571a05d0b">
+              <img src="se.png" class="icon" />
               <span class="label">Click me</span>
           </div>
       </div>
 
-      <div class="music-player" id="musicPlayer">
-          <div class="player-main">
-              <div class="cover-art">
-                  <img id="coverArt" style="display: none;" alt="Album Cover" />
-                  <div class="cover-placeholder" id="coverPlaceholder">♪</div>
-              </div>
-              
-              <div class="song-info">
-                  <div class="song-title" id="songTitle">Loading...</div>
-                  <div class="song-artist" id="songArtist">Unknown Artist</div>
-              </div>
-              
-              <div class="audio-controls">
-                  <button class="control-btn" id="prevBtn">
-                      <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
-                  </button>
-                  <button class="control-btn play-btn" id="playBtn">
-                      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                  </button>
-                  <button class="control-btn" id="nextBtn">
-                      <svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
-                  </button>
-              </div>
-          </div>
-          
-          <div class="progress-section">
-              <span class="time-display" id="currentTime">0:00</span>
-              <div class="progress-bar" id="progressBar">
-                  <div class="progress-fill" id="progressFill"></div>
-              </div>
-              <span class="time-display" id="duration">0:00</span>
-          </div>
-      </div>
-
-      <div class="buttons" id="buttons">
+      <div class="buttons">
           <a href="https://consumerrights.wiki/" class="box" target="_blank">consumer rights<br>wiki</a>
           <a href="https://fightchatcontrol.eu/" class="box" target="_blank">fight chat<br>control</a>
           <a href="https://privacyguides.org/" class="box" target="_blank">privacy<br>guides</a>
@@ -811,33 +307,9 @@ body:not(.started) .container > * {
       <span class="tooltip" id="tooltip"></span>
   </div>
 
-  <audio id="audioPlayer" preload="metadata"></audio>
-
   <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
-  <script>new cursoreffects.followingDotCursor({ color: ["#313244"] });</script>
   <script>
-    let animationsTriggered = false;
-
-    function triggerAnimations() {
-      if (animationsTriggered) return;
-      animationsTriggered = true;
-      
-      setTimeout(() => {
-        document.getElementById('headerText').classList.add('animate-in');
-      }, 100);
-      
-      setTimeout(() => {
-        document.getElementById('messagingApps').classList.add('animate-in');
-      }, 300);
-      
-      setTimeout(() => {
-        document.getElementById('musicPlayer').classList.add('animate-in');
-      }, 500);
-      
-      setTimeout(() => {
-        document.getElementById('buttons').classList.add('animate-in');
-      }, 700);
-    }
+    new cursoreffects.followingDotCursor({ color: ["#313244"] });
 
     let quotes = [];
     let currentQuoteIndex = 0;
@@ -847,104 +319,20 @@ body:not(.started) .container > * {
         const response = await fetch('quotes.json');
         quotes = await response.json();
         displayRandomQuote();
-      } catch (error) {
+      } catch {
         document.getElementById('randomText').textContent = 'Could not load quotes';
         document.getElementById('tooltip').textContent = '';
       }
     }
 
     function displayRandomQuote() {
-      if (quotes.length === 0) return;
+      if (!quotes.length) return;
       currentQuoteIndex = Math.floor(Math.random() * quotes.length);
-      const randomText = quotes[currentQuoteIndex];
-      document.getElementById('randomText').textContent = randomText;
+      document.getElementById('randomText').textContent = quotes[currentQuoteIndex];
       document.getElementById('tooltip').textContent = `[${currentQuoteIndex + 1}/${quotes.length}]`;
     }
 
     loadQuotes();
-
-    const clickPrompt = document.getElementById('clickPrompt');
-    let audioContextEnabled = false;
-
-    clickPrompt.addEventListener('click', () => {
-      clickPrompt.classList.add('hidden');
-      audioContextEnabled = true;
-      triggerAnimations();
-      if (musicPlayer && musicPlayer.songs.length > 0) {
-        setTimeout(() => musicPlayer.togglePlay(), 200);
-      }
-    });
-
-    const headerText = document.getElementById('headerText');
-    const videoModal = document.getElementById('videoModal');
-    const closeVideo = document.getElementById('closeVideo');
-    const video = videoModal.querySelector('video');
-
-    headerText.addEventListener('click', () => {
-      videoModal.classList.add('active');
-      
-      if (videoModal.requestFullscreen) {
-        videoModal.requestFullscreen();
-      } else if (videoModal.webkitRequestFullscreen) {
-        videoModal.webkitRequestFullscreen();
-      } else if (videoModal.msRequestFullscreen) {
-        videoModal.msRequestFullscreen();
-      }
-      
-      video.play();
-    });
-
-    const closeVideoAndExitFullscreen = () => {
-      videoModal.classList.remove('active');
-      video.pause();
-      video.currentTime = 0;
-      
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
-      }
-    };
-
-    closeVideo.addEventListener('click', closeVideoAndExitFullscreen);
-
-    videoModal.addEventListener('click', (e) => {
-      if (e.target === videoModal) {
-        closeVideoAndExitFullscreen();
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-        closeVideoAndExitFullscreen();
-      }
-    });
-
-    document.addEventListener('fullscreenchange', () => {
-      if (!document.fullscreenElement && videoModal.classList.contains('active')) {
-        videoModal.classList.remove('active');
-        video.pause();
-        video.currentTime = 0;
-      }
-    });
-
-    document.addEventListener('webkitfullscreenchange', () => {
-      if (!document.webkitFullscreenElement && videoModal.classList.contains('active')) {
-        videoModal.classList.remove('active');
-        video.pause();
-        video.currentTime = 0;
-      }
-    });
-
-    document.addEventListener('msfullscreenchange', () => {
-      if (!document.msFullscreenElement && videoModal.classList.contains('active')) {
-        videoModal.classList.remove('active');
-        video.pause();
-        video.currentTime = 0;
-      }
-    });
 
     const sessionApp = document.querySelector('.messaging-app.session');
     const sessionCopied = document.getElementById('sessionCopied');
@@ -953,194 +341,9 @@ body:not(.started) .container > * {
       const sessionId = sessionApp.getAttribute('data-session-id');
       navigator.clipboard.writeText(sessionId).then(() => {
         sessionCopied.classList.add('show');
-        setTimeout(() => {
-          sessionCopied.classList.remove('show');
-        }, 2000);
-      }).catch(err => {
-        console.error('Failed to copy: ', err);
+        setTimeout(() => sessionCopied.classList.remove('show'), 2000);
       });
     });
-
-    class MusicPlayer {
-      constructor() {
-        this.audio = document.getElementById('audioPlayer');
-        this.audio.volume = 0.3;
-        this.playBtn = document.getElementById('playBtn');
-        this.prevBtn = document.getElementById('prevBtn');
-        this.nextBtn = document.getElementById('nextBtn');
-        this.progressBar = document.getElementById('progressBar');
-        this.progressFill = document.getElementById('progressFill');
-        this.currentTimeEl = document.getElementById('currentTime');
-        this.durationEl = document.getElementById('duration');
-        this.songTitle = document.getElementById('songTitle');
-        this.songArtist = document.getElementById('songArtist');
-        this.coverArt = document.getElementById('coverArt');
-        this.coverPlaceholder = document.getElementById('coverPlaceholder');
-        
-        this.songs = [];
-        this.currentSongIndex = 0;
-        this.isPlaying = false;
-        this.playedSongs = [];
-        this.playHistory = [];
-        
-        this.init();
-      }
-
-    async init() {
-        try {
-            const response = await fetch('songs.json');
-            this.songs = await response.json();
-            
-            if (this.songs.length > 0) {
-                this.loadRandomSong();
-            } else {
-                this.songTitle.textContent = 'No songs available';
-                this.songArtist.textContent = '';
-            }
-        } catch (error) {
-            this.songTitle.textContent = 'Failed to load songs';
-            this.songArtist.textContent = '';
-        }
-        
-        this.setupEventListeners();
-    }
-    
-    loadRandomSong() {
-        if (this.songs.length === 0) return;
-        
-        const randomIndex = Math.floor(Math.random() * this.songs.length);
-        this.playedSongs.push(randomIndex);
-        this.playHistory.push(randomIndex);
-        this.loadSong(randomIndex);
-    }
-      
-      setupEventListeners() {
-        this.playBtn.addEventListener('click', () => this.togglePlay());
-        this.prevBtn.addEventListener('click', () => this.prevSong());
-        this.nextBtn.addEventListener('click', () => this.nextSong());
-        
-        this.audio.addEventListener('timeupdate', () => this.updateProgress());
-        this.audio.addEventListener('ended', () => this.nextSong());
-        
-        this.progressBar.addEventListener('click', (e) => {
-          const rect = this.progressBar.getBoundingClientRect();
-          const clickX = e.clientX - rect.left;
-          const width = rect.width;
-          const duration = this.audio.duration;
-          
-          if (duration && !isNaN(duration)) {
-            this.audio.currentTime = (clickX / width) * duration;
-          }
-        });
-      }
-      
-      loadSong(index) {
-        if (this.songs.length === 0) return;
-        
-        this.currentSongIndex = index;
-        const song = this.songs[index];
-        
-        this.audio.src = song.src;
-        this.songTitle.textContent = song.title;
-        this.songArtist.textContent = song.artist;
-        
-        if (song.coverArt) {
-          this.coverArt.src = song.coverArt;
-          this.coverArt.style.display = 'block';
-          this.coverPlaceholder.style.display = 'none';
-        } else {
-          this.coverArt.style.display = 'none';
-          this.coverPlaceholder.style.display = 'block';
-        }
-        
-        this.audio.load();
-        
-        if (this.isPlaying) {
-          this.playSong();
-        }
-      }
-      
-      togglePlay() {
-        if (!audioContextEnabled) {
-          clickPrompt.click();
-          return;
-        }
-        
-        if (this.isPlaying) {
-          this.pauseSong();
-        } else {
-          this.playSong();
-        }
-      }
-      
-      playSong() {
-        this.audio.play()
-          .then(() => {
-            this.isPlaying = true;
-            this.playBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z"/></svg>';
-          })
-          .catch(error => {
-            console.error('Playback failed:', error);
-          });
-      }
-      
-      pauseSong() {
-        this.audio.pause();
-        this.isPlaying = false;
-        this.playBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
-      }
-      
-      prevSong() {
-        if (this.playHistory.length <= 1) {
-          return;
-        }
-        
-        this.playHistory.pop();
-        const prevIndex = this.playHistory[this.playHistory.length - 1];
-        this.loadSong(prevIndex);
-        if (this.isPlaying) {
-          this.playSong();
-        }
-      }
-      
-      nextSong() {
-        if (this.songs.length === 0) return;
-        
-        let availableSongs = this.songs.map((_, index) => index)
-          .filter(index => !this.playedSongs.includes(index));
-        
-        if (availableSongs.length === 0) {
-          this.playedSongs = [];
-          availableSongs = this.songs.map((_, index) => index);
-        }
-        
-        const randomIndex = availableSongs[Math.floor(Math.random() * availableSongs.length)];
-        this.playedSongs.push(randomIndex);
-        this.playHistory.push(randomIndex);
-        
-        this.loadSong(randomIndex);
-        if (this.isPlaying) {
-          this.playSong();
-        }
-      }
-      
-      updateProgress() {
-        if (this.audio.duration) {
-          const progressPercent = (this.audio.currentTime / this.audio.duration) * 100;
-          this.progressFill.style.width = `${progressPercent}%`;
-          
-          const currentMinutes = Math.floor(this.audio.currentTime / 60);
-          const currentSeconds = Math.floor(this.audio.currentTime % 60);
-          this.currentTimeEl.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' : ''}${currentSeconds}`;
-          
-          const durationMinutes = Math.floor(this.audio.duration / 60);
-          const durationSeconds = Math.floor(this.audio.duration % 60);
-          this.durationEl.textContent = `${durationMinutes}:${durationSeconds < 10 ? '0' : ''}${durationSeconds}`;
-        }
-      }
-    }
-
-    const musicPlayer = new MusicPlayer();
   </script>
 </body>
 </html>
