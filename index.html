@@ -258,9 +258,28 @@ h1:hover {
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
     filter: brightness(1.1);
 }
+
+#overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+#overlay img {
+  max-width: 80vw;
+  max-height: 80vh;
+}
   </style>
 </head>
 <body>
+<div id="overlay">
+  <img src="meow.png" alt="">
+</div>
+
 
   <div class="session-copied" id="sessionCopied">
     Session ID copied to clipboard!
@@ -344,6 +363,26 @@ h1:hover {
         setTimeout(() => sessionCopied.classList.remove('show'), 2000);
       });
     });
+
+    (function () {
+  const a = document.getElementById("overlay");
+  const b = 160;
+
+  function c() {
+    const d = Math.abs(window.outerWidth - window.innerWidth);
+    const e = Math.abs(window.outerHeight - window.innerHeight);
+
+    if (d > b || e > b) {
+      a.style.display = "flex";
+    } else {
+      a.style.display = "none";
+    }
+  }
+
+  window.addEventListener("resize", c);
+  setInterval(c, 500);
+})();
+
   </script>
 </body>
 </html>
